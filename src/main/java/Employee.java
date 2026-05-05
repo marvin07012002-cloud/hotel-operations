@@ -1,17 +1,29 @@
 public class Employee {
-    private double totalPay;
-    private double regularHours;
-    private double overTimeHours;
+    private int employeeID;
+    private String name;
+    private String department;
+    private double payRate;
+    private double hoursWorked;
 
+
+// employeeId, name, department, payRate, hoursWorked
     public double getTotalPay() {
+        double totalPay;
+        totalPay = hoursWorked * payRate;
         return totalPay;
     }
 
     public double getRegularHours() {
-        return regularHours;
+        if (hoursWorked <= 40){
+            return hoursWorked;
+        }
+        return 40;
     }
 
     public double getOverTimeHours() {
-        return overTimeHours;
+        if (hoursWorked > 40){
+            return hoursWorked - 40;
+        }
+        return 0;
     }
 }
