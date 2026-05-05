@@ -8,16 +8,14 @@ public class Reservation {
     public double roomType() {
         double price = 0;
 
-       if(roomType.equalsIgnoreCase("King")){
-           price = 139.00;
-       }else if (roomType.equalsIgnoreCase("double")){
-           price = 124.00;
-       }
+        if (roomType.equalsIgnoreCase("King")) {
+            price = 139.00;
+        } else if (roomType.equalsIgnoreCase("double")) {
+            price = 124.00;
+        }
 
 
-
-
-       return price;
+        return price;
     }
 
     public Reservation(String roomType) {
@@ -54,9 +52,10 @@ public class Reservation {
 
     public double getReservationTotal() {
         double total = getPrice();
-
-        if (isWeekend){
-            totalPrice = totalPrice * 1.1;
+        if (isWeekend) {
+            double totalPrice = total * 1.1;
+            return total;
+        }
         return reservationTotal;
     }
 }
