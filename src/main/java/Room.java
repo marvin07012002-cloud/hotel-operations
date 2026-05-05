@@ -3,7 +3,7 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
-    private boolean isAvailable;
+
 
 
     public int getNumberOfBeds() {
@@ -23,6 +23,6 @@ public class Room {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return !isDirty && !isOccupied;
     }
 }

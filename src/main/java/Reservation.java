@@ -5,6 +5,15 @@ public class Reservation {
     private boolean isWeekend;
     private double reservationTotal;
 
+    public double roomType(double bedPrice) {
+        double kingBedPrice = 139.00;
+        double doubleBed = 124.00;
+    }
+
+    public Reservation(String roomType) {
+        this.roomType = roomType;
+    }
+
     public String getRoomType() {
         return roomType;
     }
