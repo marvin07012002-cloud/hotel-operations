@@ -3,7 +3,7 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
-
+    private boolean checksInAndOut;
 
 
     public int getNumberOfBeds() {
@@ -26,14 +26,18 @@ public class Room {
         return !isDirty && !isOccupied;
     }
 
-    public boolean checkIn (){
-        return !cleanRoom() && isOccupied;
+    public boolean checkIn (boolean in){
+        this.checksInAndOut = in;
+        return isDirty && isOccupied;
     }
-    public boolean checkOut(){
+    public boolean checkOut(boolean in){
+        in = this.checksInAndOut;
+
         return isDirty;
     }
 
-    public boolean cleanRoom(){
+    public boolean cleanRoom(boolean ready){
+        ready = this.isDirty;
         return !isOccupied;
     }
 }
