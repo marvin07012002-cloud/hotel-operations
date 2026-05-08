@@ -3,7 +3,6 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
-    private boolean checksInAndOut;
 
 
     public int getNumberOfBeds() {
@@ -14,8 +13,12 @@ public class Room {
         return price;
     }
 
-    public boolean isOccupied() {
-        return isOccupied;
+    public void setIsOccupied(boolean occupied) {
+        this.isOccupied = occupied;
+    }
+
+    public boolean getIsOccupied() {
+        return this.isOccupied;
     }
 
     public boolean isDirty() {
@@ -26,18 +29,24 @@ public class Room {
         return !isDirty && !isOccupied;
     }
 
-    public boolean checkIn (boolean in){
-        this.checksInAndOut = in;
-        return isDirty && isOccupied;
-    }
-    public boolean checkOut(boolean in){
-        in = this.checksInAndOut;
+    public void checkIn() {
 
-        return isDirty;
+        this.isOccupied = true;
+        this.isDirty = true;
+
     }
 
-    public boolean cleanRoom(boolean ready){
-        ready = this.isDirty;
-        return !isOccupied;
+    public void checkOut() {
+        this.isOccupied = false;
+
+    }
+
+    public void cleanRoom() {
+        if (!this.isOccupied) {
+            this.isDirty = false;
+        } else {
+            System.out.println("my bad");
+        }
+
     }
 }
